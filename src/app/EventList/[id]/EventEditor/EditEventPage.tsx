@@ -3,13 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { updateEvent, deleteEvent } from "../../../../../lib/eventApi";
-
-type Event = {
-  id: string;
-  title: string;
-  location: string;
-  datetime: string;
-};
+import { Event } from "@/app/types";
 
 export default function EditEventPage({ event }: { event: Event }) {
   const [title, setTitle] = useState(event.title);

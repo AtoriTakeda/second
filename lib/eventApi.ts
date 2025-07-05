@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { Event } from "@/app/types";
 
 export const createEvent = async ({
   title,
@@ -41,7 +42,7 @@ export const getAllEvents = async () => {
   return data;
 };
 
-export const getSingleEvent = async (id: string) => {
+export const getSingleEvent = async (id: string): Promise<Event> => {
   const { data, error } = await supabase
     .from("events")
     .select("*")
