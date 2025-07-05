@@ -12,8 +12,12 @@ export default function SignUpPage() {
     try {
       await signUpWithEmail(email, password);
       alert("登録成功！メールを確認してね！");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("不明なエラーが発生しました");
+      }
     }
   };
 

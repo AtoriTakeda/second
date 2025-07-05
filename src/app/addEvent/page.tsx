@@ -22,6 +22,7 @@ export default function EventForm() {
       router.push("/EventList");
     } catch (e) {
       alert("イベント作成失敗!");
+      console.error(e);
     }
   };
 

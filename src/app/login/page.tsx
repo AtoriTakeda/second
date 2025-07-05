@@ -15,8 +15,12 @@ export default function LoginPage() {
     try {
       await signInWithEmail(email, password);
       router.push("/EventList");
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("不明なエラーが発生しました");
+      }
     }
   };
 
