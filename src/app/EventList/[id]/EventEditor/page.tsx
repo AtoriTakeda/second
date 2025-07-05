@@ -8,7 +8,13 @@ import {
   getSingleEvent,
 } from "../../../../../lib/eventApi";
 
-export default function EditEventPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default function EditEventPage({ params }: PageProps) {
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
