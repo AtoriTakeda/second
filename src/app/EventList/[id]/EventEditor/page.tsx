@@ -2,7 +2,13 @@ import EditEventPage from "./EditEventPage";
 import { getSingleEvent } from "../../../../../lib/eventApi";
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function Page({ params }: PageProps) {
   const event = await getSingleEvent(params.id);
   if (!event) return notFound();
 
